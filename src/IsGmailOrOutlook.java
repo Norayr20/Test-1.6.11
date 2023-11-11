@@ -1,17 +1,17 @@
 public class IsGmailOrOutlook {
     public static void main(String[] args) {
         String email1 = "kata12@gmail.com";
-        boolean IsGmailOrOutlooked = isGmailOrOutlook(email1);
-        String email2 = "@outlook.com";
-        boolean IsGmailOrOutlook = isGmailOrOutlook(email2);
+        System.out.println(email1 + " is Gmail or Outlook: " + isGmailOrOutlook(email1));
     }
+
     public static boolean isGmailOrOutlook(String email) {
-        String[] parts = email.split("@");
-        if (parts.length != 2) {
+        String cleanEmail = email.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+        if (cleanEmail.endsWith("gmailcom")) {
+            return true;
+        } else if (cleanEmail.endsWith("outlookcom")) {
+            return true;
+        } else {
             return false;
         }
-
-        String domain = parts[1].toLowerCase();
-        return domain.equals("gmail.com") || domain.equals("outlook.com");
     }
 }
