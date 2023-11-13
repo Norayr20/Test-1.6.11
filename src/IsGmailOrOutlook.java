@@ -6,12 +6,6 @@ public class IsGmailOrOutlook {
 
     public static boolean isGmailOrOutlook(String email) {
         String cleanEmail = email.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-        if (cleanEmail.endsWith("gmailcom")) {
-            return true;
-        } else if (cleanEmail.endsWith("outlookcom")) {
-            return true;
-        } else {
-            return false;
-        }
+        return cleanEmail.endsWith("gmailcom") || cleanEmail.endsWith("outlookcom");
     }
 }
